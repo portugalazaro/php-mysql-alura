@@ -1,55 +1,50 @@
-.container {
-    width: 450px;
-    padding: 10px;
-    box-sizing: border-box;
-    background-color: #262626;
-    border: 3px solid whitesmoke    ;
-    text-align: center;
-    margin: 6px;
-    
-}
-
-.titulo h1 {
-    color: #2e6c03;
-    font-family: arial;
-}
-
-#box {
-    display: flex;
-    /* flex-direction: */
-    align-items: center;
-    flex-wrap: wrap;
-    width: 90%;
-    /* border: 1px solid red; */
-    justify-content: center;
-
-}
-
 body {
-    display: flex;
-    align-items: center;
-    height: 100vh;
-    flex-direction: column;
-    margin: 0;
-    background-color: rgb(163, 163, 163);
+    background: rgb(167, 167, 167);
 }
-
-
-.conteudo {
-    margin-bottom: 5px;
-    color: whitesmoke;
+#container {
+    width: 80%;
+    height: 700px;
+    border: solid 2px #262626;
+    margin: 0 auto;
+    margin-top: 20px;
+    padding: 20px;
+    background-color: aliceblue;
 }
 
 a {
     text-decoration: none;
-    color: #cba20b;
+    padding: 6px 10px;
+    color: whitesmoke;
 }
 
-header {
-    display: flex;
-    text-align: justify;
+.editar {
+    background-color: rgb(44, 151, 44);
+}
+.editar:hover {
+    background-color: rgb(159, 196, 27);
 }
 
-header a {
-    color: blue;
+.delete:hover {
+    background-color: rgb(196, 36, 36);
+}
+
+.delete {
+    background-color: brown;
+}
+
+.post {
+    width: 70%;
+    padding: 15px;
+    border: solid 2px black;
+    box-sizing: border-box;
+    background-color: rgb(228, 227, 226);
+    margin: 10px auto;
+}
+
+h2 a {
+    color: #262626;
+}
+
+div h1 {
+    text-align: center;
 }

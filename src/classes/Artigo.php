@@ -14,7 +14,6 @@ class Artigo {
 
         ];
 
-
         return $artigos;
 
     }

@@ -1,10 +1,10 @@
-<?php
+<!-- <?php
     require_once "./src/classes/Artigo.php";
 
     $artigo  = new Artigo();
     $artigos =  $artigo->exibeArtigo();
 
-?>
+?> -->
 
 <!DOCTYPE html>
 <html lang="en">
@@ -16,25 +16,27 @@
     <title>Blog Alura</title>
 </head>
 <body>
-    <header>
-        <h2>Meu Blog</h2>
-    </header>
+    <div>
+        <h1>Blog Alura</h1>
+    </div>
+    
+    <div id="container">
 
-    <div id="box">
+        <div class="post">
+            <h2> <a href="">Javascript </a> </h2> 
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatibus, libero praesentium. </p>
+        </div>
 
-        <?php foreach($artigos as $artigo){?>
+        <div class="post">
+            <h2> <a href="">Javascript </a> </h2> 
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatibus, libero praesentium. </p>
+        </div>
 
-            <div class="container">
-                <h1> <?=$artigo['titulo']?> </h1>
-                <p>
-                    <?=$artigo['conteudo']?>
-                </p>
-                <a href="">Acessar</a>
-            </div>
-
-        <?php }?>
+        <div class="post">
+            <h2> <a href="">Javascript </a> </h2> 
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatibus, libero praesentium. </p>
+        </div>
 
     </div>
-
 </body>
 </html>
