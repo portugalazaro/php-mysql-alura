@@ -1,24 +1,60 @@
 <?php
 
+class Artigo 
+{
+    private $conexao;
 
-class Artigo {
-
-    public function exibeArtigo():array
+    public function __construct($mysql)
     {
-        $artigos =  [
-            [            
-                'titulo' => 'O que é Metodologia Ágil?',
-                'conteudo' => 'Uma vez fui contratada por uma empresa que desenvolvia softwares e aplicativos para outras empresas.',
-                'link' => 'o-que-e-metodologia-agil.html'
-            ]
+        $this->conexao = $mysql;
+    }
 
-        ];
+    public function get_artigos():array 
+    {
+        $sql = "SELECT * FROM `artigos`";
+        $query = $this->conexao->query($sql);
 
-        return $artigos;
+        return $query->fetch_all(MYSQLI_ASSOC);
 
     }
 
 
+    public function get_artigo($id_artigo):Array
+    {
+
+        $sql= $this->conexao->prepare("SELECT * FROM  artigos WHERE id= ?");
+        $sql->bind_param('s', $id_artigo);
+        $sql->execute();
+        $artigo = $sql->get_result()->fetch_assoc();
+
+        if(is_array($artigo)){
+            return $artigo;
+        }
+
+        return [];
+    }
+
+    public function adicionar_artigo(Array $artigo):void
+    {
+        $sql = $this->conexao->prepare("INSERT INTO artigos (titulo, conteudo) VALUES (?,?);");
+        $sql->bind_param('ss', $artigo['titulo'], $artigo['conteudo']);
+        $sql->execute();
+    }
+
+    public function delete_artigo($id_artigo)
+    {
+        $sql = $this->conexao->prepare("DELETE FROM  `artigos` WHERE id= ?");
+        $sql->bind_param('s', $id_artigo);
+        $sql->execute();
+    }
+
+
+    public function update_artigo(Array $artigo):void 
+    {
+        $sql = $this->conexao->prepare("UPDATE artigos SET titulo = ?, conteudo = ? WHERE id = ? ");
+        $sql->bind_param('sss', $artigo['titulo'], $artigo['conteudo'], $artigo['id']);
+
+        $sql->execute();
+    }
+
 }
-
-

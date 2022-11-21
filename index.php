@@ -1,10 +1,10 @@
-<!-- <?php
+<?php
+    require_once "./Connection.php";
     require_once "./src/classes/Artigo.php";
 
-    $artigo  = new Artigo();
-    $artigos =  $artigo->exibeArtigo();
-
-?> -->
+    $consulta  = new Artigo($mysql);
+    $dados = $consulta->get_artigos();
+?> 
 
 <!DOCTYPE html>
 <html lang="en">
@@ -21,22 +21,12 @@
     </div>
     
     <div id="container">
-
+    <?php foreach($dados as $dado){?>
         <div class="post">
-            <h2> <a href="">Javascript </a> </h2> 
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatibus, libero praesentium. </p>
+            <h2> <a href="src/admin/index.php?id=<?=$dado['id']?>"> <?=$dado['titulo'];?> </a> </h2> 
+            <p> <?= $dado['conteudo'];?> </p>
         </div>
-
-        <div class="post">
-            <h2> <a href="">Javascript </a> </h2> 
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatibus, libero praesentium. </p>
-        </div>
-
-        <div class="post">
-            <h2> <a href="">Javascript </a> </h2> 
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatibus, libero praesentium. </p>
-        </div>
-
+    <?php } ?>
     </div>
 </body>
 </html>

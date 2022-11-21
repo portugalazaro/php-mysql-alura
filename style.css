@@ -3,7 +3,7 @@ body {
 }
 #container {
     width: 80%;
-    height: 700px;
+    /* height: 700px; */
     border: solid 2px #262626;
     margin: 0 auto;
     margin-top: 20px;
@@ -47,4 +47,61 @@ h2 a {
 
 div h1 {
     text-align: center;
+}
+
+            
+#voltar {
+    color: whitesmoke;
+    font-weight: bold;
+    background-color: #262626;
+}
+
+
+input {
+    width: 450px;
+    height: 30px;
+    border: none;
+    margin-bottom: 10px;
+    box-shadow: #262626 1px 0px 4px;
+    padding: 10px;
+    box-sizing: border-box;
+}
+
+textarea {
+    width: 450px;
+    padding: 20px;
+    box-sizing: border-box;
+    margin-bottom: 10px;
+
+}
+
+button {
+    width: 450px;
+    height: 40px;
+    background-color: #3d6cee;
+    border: none;
+    font-weight: bolder;
+    color: whitesmoke;
+}
+
+button:hover {
+    background-color: #305bd3;
+    cursor: pointer;
+}
+
+.botao {
+    width: 250px;
+
+}
+
+.del {
+    text-align: center;
+}
+
+.editar {
+    background-color: #34b15e;
+}
+
+.editar:hover {
+    background-color: #2c944e;
 }

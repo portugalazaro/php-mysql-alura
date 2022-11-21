@@ -1,3 +1,17 @@
+<?php
+    require_once "../../Connection.php";
+    require_once "../classes/Artigo.php";
+
+    $consulta  = new Artigo($mysql);
+
+    if(isset($_GET['id']) == NULL){
+        header('Location: ../../index.php');
+        exit;
+    }
+    $dados = $consulta->get_artigo($_GET['id']);
+?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -13,12 +27,14 @@
     </div>
 
     <div id="container">
+
         <div class="post">
-            <h2>Javascript</h2> 
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatibus, libero praesentium. </p>
+            <h2> <?=$dados['titulo'];?> </h2> 
+            <p> <?=$dados['conteudo'];?> </p>
             <div>
-                <a class="editar" href="">Editar</a>
-                <a class="delete" href="">Deletar</a>
+                <a class="editar" href="editar-artigo.php?id=<?=$dados['id'];?>">Editar</a>
+                <a class="delete" href="deletar-artigo.php?id=<?=$dados['id'];?>">Deletar</a>
+                <a id="voltar" href="../../index.php">Voltar</a>
             </div>
         </div>
 
